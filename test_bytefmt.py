@@ -1,6 +1,6 @@
 import unittest
 
-from bytefmt import format_bytes, parse_bytes
+from bytefmt import format_bytes, is_bytes, parse_bytes
 
 
 class BytefmtTest(unittest.TestCase):
@@ -12,6 +12,8 @@ class BytefmtTest(unittest.TestCase):
     def test_parse(self) -> None:
         self.assertEqual(parse_bytes("1.5 KB"), 1536)
         self.assertEqual(parse_bytes("2MB"), 2 * 1024 * 1024)
+        self.assertTrue(is_bytes("2MB"))
+        self.assertFalse(is_bytes("soon"))
 
 
 if __name__ == "__main__":
