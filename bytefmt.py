@@ -37,3 +37,11 @@ def parse_bytes(text: str) -> int:
         raise ValueError("字节数不能为负")
     power = _UNITS.index(unit)
     return int(amount * (1024**power))
+
+
+def is_bytes(text: str) -> bool:
+    try:
+        parse_bytes(text)
+    except ValueError:
+        return False
+    return True
