@@ -39,6 +39,12 @@ def parse_bytes(text: str) -> int:
     return int(amount * (1024**power))
 
 
+def sum_bytes(*texts: str) -> int:
+    if not texts:
+        raise ValueError("没有字节数")
+    return sum(parse_bytes(text) for text in texts)
+
+
 def is_bytes(text: str) -> bool:
     try:
         parse_bytes(text)
