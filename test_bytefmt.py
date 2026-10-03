@@ -1,6 +1,6 @@
 import unittest
 
-from bytefmt import format_bytes, is_bytes, parse_bytes, sum_bytes
+from bytefmt import format_bytes, greater_than, is_bytes, parse_bytes, sum_bytes
 
 
 class BytefmtTest(unittest.TestCase):
@@ -15,6 +15,8 @@ class BytefmtTest(unittest.TestCase):
         self.assertTrue(is_bytes("2MB"))
         self.assertFalse(is_bytes("soon"))
         self.assertEqual(sum_bytes("1 KB", "512 B"), 1536)
+        self.assertTrue(greater_than("2MB", "1 KB"))
+        self.assertFalse(greater_than("1 KB", "2MB"))
         with self.assertRaises(ValueError):
             sum_bytes()
 
