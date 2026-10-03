@@ -39,6 +39,10 @@ def parse_bytes(text: str) -> int:
     return int(amount * (1024**power))
 
 
+def greater_than(left: str, right: str) -> bool:
+    return parse_bytes(left) > parse_bytes(right)
+
+
 def sum_bytes(*texts: str) -> int:
     if not texts:
         raise ValueError("没有字节数")
