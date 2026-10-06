@@ -39,6 +39,10 @@ def parse_bytes(text: str) -> int:
     return int(amount * (1024**power))
 
 
+def lesser(left: str, right: str) -> str:
+    return left if parse_bytes(left) <= parse_bytes(right) else right
+
+
 def greater_than(left: str, right: str) -> bool:
     return parse_bytes(left) > parse_bytes(right)
 
