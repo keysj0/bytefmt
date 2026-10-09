@@ -43,6 +43,10 @@ def lesser(left: str, right: str) -> str:
     return left if parse_bytes(left) <= parse_bytes(right) else right
 
 
+def equal_bytes(left: str, right: str) -> bool:
+    return parse_bytes(left) == parse_bytes(right)
+
+
 def greater_than(left: str, right: str) -> bool:
     return parse_bytes(left) > parse_bytes(right)
 
