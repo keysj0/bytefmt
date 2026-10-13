@@ -51,6 +51,10 @@ def gap_bytes(left: str, right: str) -> int:
     return abs(parse_bytes(left) - parse_bytes(right))
 
 
+def zero_bytes(text: str) -> bool:
+    return parse_bytes(text) == 0
+
+
 def greater_than(left: str, right: str) -> bool:
     return parse_bytes(left) > parse_bytes(right)
 
