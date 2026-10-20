@@ -1,6 +1,6 @@
 import unittest
 
-from bytefmt import at_least, equal_bytes, format_bytes, gap_bytes, greater_than, is_bytes, lesser, parse_bytes, sum_bytes, zero_bytes
+from bytefmt import at_least, at_least_kb, equal_bytes, format_bytes, gap_bytes, greater_than, is_bytes, lesser, parse_bytes, sum_bytes, zero_bytes
 
 
 class BytefmtTest(unittest.TestCase):
@@ -19,6 +19,8 @@ class BytefmtTest(unittest.TestCase):
         self.assertFalse(greater_than("1 KB", "2MB"))
         self.assertTrue(at_least("1 KB", "1024 B"))
         self.assertFalse(at_least("1 KB", "2MB"))
+        self.assertTrue(at_least_kb("1 KB"))
+        self.assertFalse(at_least_kb("512 B"))
         self.assertEqual(lesser("2MB", "1 KB"), "1 KB")
         self.assertTrue(equal_bytes("1 KB", "1024 B"))
         self.assertFalse(equal_bytes("1 KB", "2 KB"))
