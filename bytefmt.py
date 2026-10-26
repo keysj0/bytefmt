@@ -71,6 +71,10 @@ def over_mb(text: str) -> bool:
     return parse_bytes(text) > 1024 * 1024
 
 
+def under_kb(text: str) -> bool:
+    return parse_bytes(text) < 1024
+
+
 def sum_bytes(*texts: str) -> int:
     if not texts:
         raise ValueError("没有字节数")
