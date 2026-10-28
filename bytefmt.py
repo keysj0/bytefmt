@@ -87,3 +87,6 @@ def is_bytes(text: str) -> bool:
     except ValueError:
         return False
     return True
+
+def under_mb(text: str) -> bool:
+    return parse_bytes(text) < 1024 * 1024
